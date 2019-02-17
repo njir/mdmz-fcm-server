@@ -5,6 +5,6 @@ import auth from '../controllers/auth';
 const routes = express.Router();
 
 routes.route('/authenticate')
-  .post(auth.authenticate);
+    .post(auth.authenticate);
 
 module.exports = routes;
