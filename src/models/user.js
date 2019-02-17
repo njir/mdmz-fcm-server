@@ -25,16 +25,16 @@ const UserSchema = new Schema({
 });
 
 UserSchema.set('toJSON', {
-    transform: (doc, ret, options) => {
+    transform: function (doc, ret, options) {
         delete ret.password;
         return ret;
     }
 });
 
-UserSchema.pre('save', (next) => {
+UserSchema.pre('save', function (next) {
     if (!this.isModified('password')) return next();
 
-    bcrypt.hash(this.password, 10, (err, hash) => {
+    bcrypt.hash(this.password, 10, function (err, hash) {
         if (err) return next(err);
 
         this.password = hash;
@@ -42,31 +42,31 @@ UserSchema.pre('save', (next) => {
     });
 });
 
-UserSchema.methods.getTokenData = () => {
+UserSchema.methods.getTokenData = function () {
     return {
         id: this.id,
         email: this.email
     }
 };
 
-UserSchema.methods.verifyPassword = (candidatePassword, callback) => {
-    bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
+UserSchema.methods.verifyPassword = function (candidatePassword, callback) {
+    bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
         if (err) return callback(err);
         callback(null, isMatch);
     });
 };
 
-UserSchema.methods.equals = (user) => {
+UserSchema.methods.equals = function (user) {
     return this._id == user._id;
 };
 
-UserSchema.methods.canRead = (object) => {
+UserSchema.methods.canRead = function (object) {
     return this.equals(object) ||
         (object.owner && object.owner == this.id) ||
         this.role == "admin";
 };
 
-UserSchema.methods.canEdit = (object) => {
+UserSchema.methods.canEdit = function (object) {
     return this.canRead(object); // can be extended later
 };
 

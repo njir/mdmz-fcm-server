@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/njir/meeting-app-server",
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.17.2",
     "config": "^1.26.2",
     "express": "^4.15.3",
