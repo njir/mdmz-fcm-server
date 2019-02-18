@@ -2,11 +2,8 @@ import express from 'express';
 
 import users from '../../controllers/users';
 import auth from '../../controllers/auth';
-import items from './items';
 
 const routes = express.Router();
-
-routes.use('/:userId/items', users.loadUser, items);
 
 routes.route('/:id')
     .all(auth.verifyToken)
