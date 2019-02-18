@@ -10,7 +10,12 @@ import config from 'config';
 import db from './db/db';
 import routes from './routes';
 
+const passport = require('passport');
+
 const app = express();
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
