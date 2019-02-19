@@ -1,5 +1,4 @@
 import express from 'express';
-import auth from '../controllers/auth';
 
 const passport = require('passport');
 const KakaoStrategy = require('passport-kakao').Strategy;
@@ -19,9 +18,6 @@ passport.use('login-kakao',
 );
 
 const routes = express.Router();
-
-routes.route('/auth')
-    .post(auth.authenticate);
 
 // using passport
 routes.route('/kakao')
