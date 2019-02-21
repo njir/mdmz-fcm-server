@@ -4,7 +4,6 @@ import config from 'config';
 import response from '../helpers/response';
 
 const User = mongoose.model('User');
-
 const privateKey = config.key.privateKey;
 const tokenExpireInMinutes = config.key.tokenExpireInMinutes;
 
