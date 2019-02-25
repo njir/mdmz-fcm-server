@@ -10,20 +10,7 @@ import config from 'config';
 import db from './db/db';
 import routes from './routes';
 
-const passport = require('passport');
-
 const app = express();
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.serializeUser((user, callback) => {
-    callback(null, user);
-});
-
-passport.deserializeUser((obj, callback) => {
-    callback(null, obj);
-});
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
