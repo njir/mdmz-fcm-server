@@ -10,7 +10,7 @@ routes.use(response.setHeadersForCORS);
 routes.use('/push', push);
 
 routes.get('/', (req, res) => {
-    res.status(200).json({ message: 'Ok' });
+    res.status(200).json({ message: 'OK' });
 });
 
 routes.use((req, res) => {
