@@ -16,7 +16,6 @@
     "REST",
     "API",
     "Node.js",
-    "wordlist",
     "meeting"
   ],
   "author": "Fail Nicely",
@@ -30,13 +29,9 @@
     "body-parser": "^1.17.2",
     "config": "^1.26.2",
     "express": "^4.15.3",
+    "firebase-admin": "^7.0.0",
     "jsonwebtoken": "^7.4.2",
-    "mongoose": "^4.11.5",
-    "mongoose-paginate": "^5.0.3",
     "morgan": "^1.8.2",
-    "passport": "^0.4.0",
-    "passport-kakao": "0.0.5",
-    "pow-mongodb-fixtures": "^0.14.0",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
   },
