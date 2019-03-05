@@ -12,10 +12,11 @@ admin.initializeApp({
 //! Implements function
 const pushMessage = (req, res) => {
     const token = req.body.token;
+    if (!token) 
+        return response.sendBadRequest(res, 'Device token is a required parameter.');
+
     const title = req.body.title;
     const body = req.body.body;
-    if (!token) return response.sendBadRequest(res, 'Device token is a required parameter.');
-
     const message = {
         token: token,
         notification: { title, body },

@@ -1,1 +1,1 @@
-# Meeting App Server
+# MDMZ FCM Server
